@@ -32,12 +32,12 @@ install:	llamafile/zipalign.1					\
 		o/$(MODE)/llama.cpp/perplexity/perplexity		\
 		o/$(MODE)/llama.cpp/llava/llava-quantize
 	mkdir -p $(PREFIX)/bin
-	$(INSTALL) o/$(MODE)/llamafile/zipalign $(PREFIX)/bin/zipalign
-	$(INSTALL) o/$(MODE)/llama.cpp/main/main $(PREFIX)/bin/llamafile
-	$(INSTALL) o/$(MODE)/llama.cpp/quantize/quantize $(PREFIX)/bin/llamafile-quantize
-	$(INSTALL) build/llamafile-convert $(PREFIX)/bin/llamafile-convert
-	$(INSTALL) o/$(MODE)/llama.cpp/perplexity/perplexity $(PREFIX)/bin/llamafile-perplexity
-	$(INSTALL) o/$(MODE)/llama.cpp/llava/llava-quantize $(PREFIX)/bin/llava-quantize
+	$(INSTALL) -m 0755 o/$(MODE)/llamafile/zipalign $(PREFIX)/bin/zipalign
+	$(INSTALL) -m 0755 o/$(MODE)/llama.cpp/main/main $(PREFIX)/bin/llamafile
+	$(INSTALL) -m 0755 o/$(MODE)/llama.cpp/quantize/quantize $(PREFIX)/bin/llamafile-quantize
+	$(INSTALL) -m 0755 build/llamafile-convert $(PREFIX)/bin/llamafile-convert
+	$(INSTALL) -m 0755 o/$(MODE)/llama.cpp/perplexity/perplexity $(PREFIX)/bin/llamafile-perplexity
+	$(INSTALL) -m 0755 o/$(MODE)/llama.cpp/llava/llava-quantize $(PREFIX)/bin/llava-quantize
 	mkdir -p $(PREFIX)/share/man/man1
 	$(INSTALL) -m 0644 llamafile/zipalign.1 $(PREFIX)/share/man/man1/zipalign.1
 	$(INSTALL) -m 0644 llama.cpp/main/main.1 $(PREFIX)/share/man/man1/llamafile.1
